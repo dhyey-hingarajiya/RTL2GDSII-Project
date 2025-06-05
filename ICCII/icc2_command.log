@@ -77,3 +77,6 @@ save_lib
 start_gui
 report_qor
 report_timing
+source scripts/placement.tcl
+report_qor
+report_timing
