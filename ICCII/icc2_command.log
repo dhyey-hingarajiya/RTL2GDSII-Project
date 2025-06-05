@@ -83,3 +83,78 @@ report_timing
 source scripts/clock.tcl
 report_qor
 report_timing
+source scripts/route.tcl
+gui_set_preset -category Layout -system -name {routing}
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorPathDataPaths -value yellow
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorPathLaunchClockPaths -value green
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorPathCaptureClockPaths -value red
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorPathCommonClockPaths -value magenta
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorPathCells -value blue
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorColorMask1Soft -value red
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting hatchColorMask1Soft -value Dense2Pattern
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorColorMask1Hard -value red
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting hatchColorMask1Hard -value DiagCrossPattern
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorColorMask2Soft -value orange
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting hatchColorMask2Soft -value Dense2Pattern
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorColorMask2Hard -value orange
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting hatchColorMask2Hard -value DiagCrossPattern
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorColorMask3Soft -value yellow
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting hatchColorMask3Soft -value Dense2Pattern
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorColorMask3Hard -value yellow
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting hatchColorMask3Hard -value DiagCrossPattern
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorColorMask4Soft -value green2
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting hatchColorMask4Soft -value Dense2Pattern
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorColorMask4Hard -value green2
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting hatchColorMask4Hard -value DiagCrossPattern
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorColorMask5Soft -value cyan
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting hatchColorMask5Soft -value Dense2Pattern
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorColorMask5Hard -value cyan
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting hatchColorMask5Hard -value DiagCrossPattern
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorColorMask6Soft -value magenta
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting hatchColorMask6Soft -value Dense2Pattern
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorColorMask6Hard -value magenta
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting hatchColorMask6Hard -value DiagCrossPattern
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorColorMask7Soft -value lightsalmon
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting hatchColorMask7Soft -value Dense2Pattern
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorColorMask7Hard -value lightsalmon
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting hatchColorMask7Hard -value DiagCrossPattern
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorColorMask8Soft -value pink
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting hatchColorMask8Soft -value Dense2Pattern
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorColorMask8Hard -value pink
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting hatchColorMask8Hard -value DiagCrossPattern
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorColorMask9Soft -value lightgreen
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting hatchColorMask9Soft -value Dense2Pattern
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorColorMask9Hard -value lightgreen
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting hatchColorMask9Hard -value DiagCrossPattern
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorColorMask10Soft -value lightblue
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting hatchColorMask10Soft -value Dense2Pattern
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorColorMask10Hard -value lightblue
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting hatchColorMask10Hard -value DiagCrossPattern
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorColorMask11Soft -value brown
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting hatchColorMask11Soft -value Dense2Pattern
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorColorMask11Hard -value brown
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting hatchColorMask11Hard -value DiagCrossPattern
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorColorMask12Soft -value chocolate
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting hatchColorMask12Soft -value Dense2Pattern
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorColorMask12Hard -value chocolate
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting hatchColorMask12Hard -value DiagCrossPattern
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorColorMask13Soft -value slateblue
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting hatchColorMask13Soft -value Dense2Pattern
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorColorMask13Hard -value slateblue
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting hatchColorMask13Hard -value DiagCrossPattern
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorColorMask14Soft -value darkmagenta
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting hatchColorMask14Soft -value Dense2Pattern
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorColorMask14Hard -value darkmagenta
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting hatchColorMask14Hard -value DiagCrossPattern
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorColorMask15Soft -value orchid
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting hatchColorMask15Soft -value Dense2Pattern
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorColorMask15Hard -value orchid
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting hatchColorMask15Hard -value DiagCrossPattern
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorColorMaskSame -value blue
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting hatchColorMaskSame -value Dense4Pattern
+gui_set_setting -window [gui_get_current_window -types Layout -mru] -setting colorTopologyNodeIntermediate -value gray
+win_set_filter -expand_cell_types {std io hard_macro soft_macro ilm other  }
+win_set_select_class -visible {cell pin port routing_guide routing_blockage shaping_blockage bump_region pseudo_bump pseudo_tsv pin_blockage block_shielding topology_node topology_edge topology_repeater annotation_shape core_area die_area edit_group shape via via_region terminal fill_cell metal_area metal_area_hole placement_blockage }
+win_set_select_class {cell pin port routing_guide routing_blockage shaping_blockage bump_region pseudo_bump pseudo_tsv pin_blockage topology_node topology_edge topology_repeater annotation_shape edit_group shape via via_region metal_area metal_area_hole placement_blockage }
+report_timing
+report_qor
