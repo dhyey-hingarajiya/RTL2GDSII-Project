@@ -1,0 +1,91 @@
+****************************************
+Report : timing
+	collection of 1 path(s)
+	-input_pins
+	-nets
+	-sort_by slack
+Design : full_adder_8bit
+Version: W-2024.09
+Date   : Thu Jun  5 11:47:34 2025
+****************************************
+
+
+  Startpoint: regCin_reg (rising edge-triggered flip-flop clocked by Clock)
+  Endpoint: SUM_reg[7] (rising edge-triggered flip-flop clocked by Clock)
+  Path Group: Clock
+  Path Type: max
+
+  Point                                      Fanout       Incr       Path
+  ------------------------------------------------------------------------------
+  clock Clock (rise edge)                             0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  regCin_reg/CLK (DFFSSRX1_RVT)                       0.000000   0.000000 r
+  regCin_reg/QN (DFFSSRX1_RVT)                        0.044293   0.044293 r
+  regCin (net)                                  3 
+  U85/A2 (NAND2X0_RVT)                                0.117848   0.162141 r
+  U85/Y (NAND2X0_RVT)                                 0.017000   0.179141 f
+  n60 (net)                                     2 
+  U86/A1 (NAND2X0_RVT)                                0.052774   0.231915 f
+  U86/Y (NAND2X0_RVT)                                 0.016383   0.248298 r
+  n56 (net)                                     1 
+  U87/A3 (NAND3X0_RVT)                                0.010619   0.258917 r
+  U87/Y (NAND3X0_RVT)                                 0.026837   0.285754 f
+  n118 (net)                                    3 
+  ctmTdsLR_2_710/A2 (AND3X1_RVT)                      0.121796   0.407550 f
+  ctmTdsLR_2_710/Y (AND3X1_RVT)                       0.034100   0.441650 f
+  tmp_net3 (net)                                1 
+  ctmTdsLR_1_709/A (INVX0_RVT)                        0.011875   0.453525 f
+  ctmTdsLR_1_709/Y (INVX0_RVT)                        0.008618   0.462143 r
+  n62 (net)                                     1 
+  U96/A1 (AND2X1_RVT)                                 0.012065   0.474208 r
+  U96/Y (AND2X1_RVT)                                  0.019056   0.493265 r
+  n69 (net)                                     2 
+  U97/A2 (NAND2X0_RVT)                                0.044078   0.537343 r
+  U97/Y (NAND2X0_RVT)                                 0.021092   0.558435 f
+  n107 (net)                                    3 
+  U98/A1 (NAND2X0_RVT)                                0.127311   0.685746 f
+  U98/Y (NAND2X0_RVT)                                 0.017780   0.703525 r
+  n68 (net)                                     1 
+  U103/A2 (NAND3X0_RVT)                               0.011156   0.714681 r
+  U103/Y (NAND3X0_RVT)                                0.028304   0.742985 f
+  n102 (net)                                    3 
+  ctmTdsLR_2_712/A2 (AND3X1_RVT)                      0.121796   0.864782 f
+  ctmTdsLR_2_712/Y (AND3X1_RVT)                       0.034024   0.898805 f
+  tmp_net4 (net)                                1 
+  ctmTdsLR_1_711/A (INVX0_RVT)                        0.011875   0.910680 f
+  ctmTdsLR_1_711/Y (INVX0_RVT)                        0.008612   0.919292 r
+  n75 (net)                                     1 
+  U112/A1 (AND2X1_RVT)                                0.012065   0.931357 r
+  U112/Y (AND2X1_RVT)                                 0.023646   0.955003 r
+  n91 (net)                                     5 
+  U113/A2 (NAND2X0_RVT)                               0.378565   1.333568 r
+  U113/Y (NAND2X0_RVT)                                0.016930   1.350498 f
+  n78 (net)                                     2 
+  U118/A1 (NAND2X0_RVT)                               0.052774   1.403272 f
+  U118/Y (NAND2X0_RVT)                                0.016499   1.419770 r
+  n79 (net)                                     1 
+  U119/A3 (NAND3X0_RVT)                               0.010619   1.430389 r
+  U119/Y (NAND3X0_RVT)                                0.021417   1.451806 f
+  n86 (net)                                     2 
+  U120/A2 (NAND2X0_RVT)                               0.047320   1.499126 f
+  U120/Y (NAND2X0_RVT)                                0.023612   1.522738 r
+  n87 (net)                                     2 
+  U67/A1 (OR2X1_RVT)                                  0.050261   1.572999 r
+  U67/Y (OR2X1_RVT)                                   0.026297   1.599296 r
+  n154 (net)                                    1 
+  SUM_reg[7]/D (DFFSSRX1_RVT)                         0.011994   1.611290 r
+  data arrival time                                              1.611290
+
+  clock Clock (rise edge)                             2.000000   2.000000
+  clock network delay (ideal)                         0.000000   2.000000
+  SUM_reg[7]/CLK (DFFSSRX1_RVT)                                  2.000000 r
+  clock reconvergence pessimism                       0.000000   2.000000
+  clock uncertainty                                   -0.300000  1.700000
+  library setup time                                  -0.053678  1.646322
+  data required time                                             1.646322
+  ------------------------------------------------------------------------------
+  data required time                                             1.646322
+  data arrival time                                              -1.611290
+  ------------------------------------------------------------------------------
+  slack (MET)                                                    0.035032
+

@@ -1,0 +1,12 @@
+****************************************
+Report : global_timing
+	-format { narrow }
+Design : full_adder_8bit
+Version: W-2024.09
+Date   : Thu Jun  5 11:29:30 2025
+****************************************
+
+No setup violations found.
+
+No hold violations found.
+1
