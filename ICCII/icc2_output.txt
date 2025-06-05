@@ -368,4 +368,409 @@ Date   : Thu Jun  5 11:05:36 2025
 ****************************************
 No paths.
 1
+icc2_shell> source scripts/power_planning.tcl
+Error: unknown command 'create_io_pin' (CMD-005)
+Information: script '/home/student/Documents/RTL2GDSII/ICCII/scripts/power_planning.tcl'
+                stopped at line 16 due to error. (CMD-081)
+Extended error info:
+
+    while executing
+"create_io_pin -net VDD -layer M1 -location {0 0}"
+    (file "/home/student/Documents/RTL2GDSII/ICCII/scripts/power_planning.tcl" line 16)
+ -- End Extended Error Info
+icc2_shell> #######################################################################################
+icc2_shell> ## Power-planning - To build Power Delivery Network (PDN)
+icc2_shell> ## #####################################################################################
+icc2_shell> #
+icc2_shell> ############################################################################
+icc2_shell> ### Step 1: to_create power/ground nets and to_connect power/ground nets :-
+icc2_shell> ##############################################################################
+icc2_shell> #to create power nets
+icc2_shell> create_net -power {VDD}
+Error: Net 'VDD' already exists. (DES-150)
+0
+icc2_shell> create_net -ground {VSS}
+Error: Net 'VSS' already exists. (DES-150)
+0
+icc2_shell> ## to connect power/ground_nets
+icc2_shell> create_io_pin -net VDD -layer M1 -location {0 0}
+Error: unknown command 'create_io_pin' (CMD-005)
+icc2_shell> create_io_pin -net VSS -layer M1 -location {0 5}
+Error: unknown command 'create_io_pin' (CMD-005)
+icc2_shell> #
+icc2_shell> connect_pg_net -all_blocks -automatic
+Information: Connecting to PG and tie pins in automatic mode. (MV-396)
+****************************************
+Report : Power/Ground Connection Summary
+Design : full_adder_8bit
+Version: W-2024.09
+Date   : Thu Jun  5 11:08:52 2025
+****************************************
+P/G net name                  P/G pin count(previous/current)
+--------------------------------------------------------------------------------
+Power net VDD                 0/103
+Ground net VSS                0/103
+--------------------------------------------------------------------------------
+Information: connections of 206 power/ground pin(s) are created or changed. (MV-382)
+
+1
+icc2_shell> #################################################################################
+icc2_shell> ### step 2: to create power and ground ring patterns
+icc2_shell> #################################################################################
+icc2_shell> ###
+icc2_shell> #scenario1:
+icc2_shell> create_pg_ring_pattern core_ring_pattern -horizontal_layer M7 -horizontal_width .4 -horizontal_spacing .3 -vertical_layer M8 -vertical_width .4 -vertical_spacing .3
+Information: The command 'create_pg_ring_pattern' cleared the undo history. (UNDO-016)
+Successfully create PG ring pattern core_ring_pattern.
+icc2_shell> set_pg_strategy core_power_ring -core -pattern {{name : core_ring_pattern}{nets : {VDD VSS}}{offset : {.5 .5}}}
+Successfully set PG strategy core_power_ring.
+icc2_shell> compile_pg -strategies core_power_ring
+[icc2-lic Thu Jun  5 11:08:53 2025] Command 'compile_pg' requires licenses
+[icc2-lic Thu Jun  5 11:08:53 2025] Attempting to check-out alternate set of keys directly with queueing
+[icc2-lic Thu Jun  5 11:08:53 2025] Sending count request for 'ICCompilerII-8' 
+[icc2-lic Thu Jun  5 11:08:53 2025] Count request for 'ICCompilerII-8' returned 1 
+[icc2-lic Thu Jun  5 11:08:53 2025] Sending check-out request for 'ICCompilerII-8' (1) with wait option
+[icc2-lic Thu Jun  5 11:08:53 2025] Check-out request for 'ICCompilerII-8' with wait option succeeded
+[icc2-lic Thu Jun  5 11:08:53 2025] Sending checkout check request for 'ICCompilerII-8' 
+[icc2-lic Thu Jun  5 11:08:53 2025] Checkout check request for 'ICCompilerII-8' returned 0 
+[icc2-lic Thu Jun  5 11:08:53 2025] Sending count request for 'ICCompilerII-8' 
+[icc2-lic Thu Jun  5 11:08:53 2025] Count request for 'ICCompilerII-8' returned 1 
+[icc2-lic Thu Jun  5 11:08:53 2025] Sending count request for 'ICCompilerII-NX' 
+[icc2-lic Thu Jun  5 11:08:53 2025] Count request for 'ICCompilerII-NX' returned 1 
+[icc2-lic Thu Jun  5 11:08:53 2025] Sending check-out request for 'ICCompilerII-NX' (1) with wait option
+[icc2-lic Thu Jun  5 11:08:53 2025] Check-out request for 'ICCompilerII-NX' with wait option succeeded
+[icc2-lic Thu Jun  5 11:08:53 2025] Sending checkout check request for 'ICCompilerII-NX' 
+[icc2-lic Thu Jun  5 11:08:53 2025] Checkout check request for 'ICCompilerII-NX' returned 0 
+[icc2-lic Thu Jun  5 11:08:53 2025] Sending count request for 'ICCompilerII-NX' 
+[icc2-lic Thu Jun  5 11:08:53 2025] Count request for 'ICCompilerII-NX' returned 1 
+[icc2-lic Thu Jun  5 11:08:53 2025] Check-out of alternate set of keys directly with queueing was successful
+Sanity check for inputs.
+No strategy-level via rule is specified, the default rule will be applied.
+Automatic PG net connection through connect_pg_net is disabled.
+Updating PG strategies.
+Updating strategy core_power_ring.
+Loading library and design information.
+Number of Standard Cells: 103
+Number of Hard Macros: 0
+Number of Pads: 0
+Creating rings.
+Creating via connection between strategies and existing shapes.
+via connection runtime: 0 seconds.
+Removing dangling/floating wire/vias after DRC check.
+Start iteration 1:
+Checking potential dangling/floating power plan wires.
+Checking dangling/floating vias inside strategy core_power_ring.
+Checking 8 stacked vias: 0% 100%
+Finish removing all dangling or floating wires and vias.
+Commiting wires and vias.
+Committing wires takes 0.00 seconds.
+Committing vias takes 0.00 seconds.
+Committed 8 wires.
+Committed 8 vias.
+Committed 0 wires for via creation.
+Overall PG creation runtime: 0 seconds.
+Successfully compiled PG.
+Overall runtime: 0 seconds.
+1
+icc2_shell> ###############################################################################
+icc2_shell> ### step 3: to create pg mesh pattern
+icc2_shell> ################################################################################
+icc2_shell> create_pg_mesh_pattern mesh -layers { {{vertical_layer: M6}{width: .34} {spacing: interleaving}{pitch: 5} {offset: .5}} {{horizontal_layer: M7}{width: .38} {spacing: interleaving} {pitch: 5} {offset: .5}} {{vertical_layer: M8}{width: .38} {spacing: interleaving}{pitch: 5} {offset: .5}}}
+Successfully create mesh pattern mesh.
+1
+icc2_shell> set_pg_strategy core_mesh -pattern { {pattern:mesh} {nets: VDD VSS}} -core -extension {stop: innermost_ring}
+Successfully set PG strategy core_mesh.
+icc2_shell> #set_pg_strategy core_mesh -pattern { {pattern:mesh} {nets: VDD VSS}} -core -extension {{{side: 1 2} {direction: L T} {stop: innermost_ring}}}
+icc2_shell> compile_pg -strategies core_mesh
+[icc2-lic Thu Jun  5 11:08:54 2025] Command 'compile_pg' requires licenses
+[icc2-lic Thu Jun  5 11:08:54 2025] Attempting to check-out alternate set of keys directly with queueing
+[icc2-lic Thu Jun  5 11:08:54 2025] Sending count request for 'ICCompilerII-8' 
+[icc2-lic Thu Jun  5 11:08:54 2025] Count request for 'ICCompilerII-8' returned 1 
+[icc2-lic Thu Jun  5 11:08:54 2025] Sending check-out request for 'ICCompilerII-8' (1) with wait option
+[icc2-lic Thu Jun  5 11:08:54 2025] Check-out request for 'ICCompilerII-8' with wait option succeeded
+[icc2-lic Thu Jun  5 11:08:54 2025] Sending checkout check request for 'ICCompilerII-8' 
+[icc2-lic Thu Jun  5 11:08:54 2025] Checkout check request for 'ICCompilerII-8' returned 0 
+[icc2-lic Thu Jun  5 11:08:54 2025] Sending count request for 'ICCompilerII-8' 
+[icc2-lic Thu Jun  5 11:08:54 2025] Count request for 'ICCompilerII-8' returned 1 
+[icc2-lic Thu Jun  5 11:08:54 2025] Sending count request for 'ICCompilerII-NX' 
+[icc2-lic Thu Jun  5 11:08:54 2025] Count request for 'ICCompilerII-NX' returned 1 
+[icc2-lic Thu Jun  5 11:08:54 2025] Sending check-out request for 'ICCompilerII-NX' (1) with wait option
+[icc2-lic Thu Jun  5 11:08:54 2025] Check-out request for 'ICCompilerII-NX' with wait option succeeded
+[icc2-lic Thu Jun  5 11:08:54 2025] Sending checkout check request for 'ICCompilerII-NX' 
+[icc2-lic Thu Jun  5 11:08:54 2025] Checkout check request for 'ICCompilerII-NX' returned 0 
+[icc2-lic Thu Jun  5 11:08:54 2025] Sending count request for 'ICCompilerII-NX' 
+[icc2-lic Thu Jun  5 11:08:54 2025] Count request for 'ICCompilerII-NX' returned 1 
+[icc2-lic Thu Jun  5 11:08:54 2025] Check-out of alternate set of keys directly with queueing was successful
+Sanity check for inputs.
+No strategy-level via rule is specified, the default rule will be applied.
+Automatic PG net connection through connect_pg_net is disabled.
+Updating PG strategies.
+Updating strategy core_mesh.
+Loading library and design information.
+Number of Standard Cells: 103
+Number of Hard Macros: 0
+Number of Pads: 0
+Creating straps and vias in power plan.
+Creating wire shapes for strategies core_mesh .
+Creating wire shapes runtime: 0 seconds
+Blockage cutting and DRC fixing for wire shapes for strategies core_mesh .
+Check and fix DRC for 24 wires for strategy core_mesh.
+Number of threads: 1
+Number of partitions: 2
+Direction of partitions: vertical
+Number of wires: 16
+Checking DRC for 16 wires: 0% 100%
+Checking DRC for 8 wires: 0% 100%
+Creating 24 wires after DRC fixing.
+Wire DRC checking runtime 0.00 seconds.
+Creating via shapes for strategies core_mesh .
+Working on strategy core_mesh.
+Number of detected intersections: 64
+Total runtime of via shapes creation: 0 seconds
+Check and fix DRC for 64 stacked vias for strategy core_mesh.
+Checking DRC for 64 stacked vias:: 0% 100%
+Runtime of via DRC checking for strategy core_mesh: 0.00 seconds.
+Creating via connection between strategies and existing shapes.
+Check and fix DRCs for 48 stacked vias.
+Number of threads: 1
+Number of partitions: 2
+Direction of partitions: horizontal
+Number of vias: 48
+Checking DRC for 48 stacked vias:: 0% 100%
+Via DRC checking runtime 0.00 seconds.
+via connection runtime: 0 seconds.
+Removing dangling/floating wire/vias after DRC check.
+Start iteration 1:
+Checking potential dangling/floating power plan wires.
+Checking dangling/floating vias inside strategy core_mesh.
+Checking 64 stacked vias: 0% 100%
+Checking dangling/floating vias between strategies and existing shapes.
+Checking 48 stacked vias: 0% 100%
+Finish removing all dangling or floating wires and vias.
+Commiting wires and vias.
+Committing wires takes 0.00 seconds.
+Committing vias takes 0.00 seconds.
+Committed 24 wires.
+Committed 112 vias.
+Committed 0 wires for via creation.
+Overall PG creation runtime: 0 seconds.
+Successfully compiled PG.
+Overall runtime: 0 seconds.
+1
+icc2_shell> ###################################################
+icc2_shell> ###step 4 : to create std cell power rail pattern
+icc2_shell> #######################################################
+icc2_shell> create_pg_std_cell_conn_pattern std_cell_rail -layers {M1} -rail_width 0.06
+Successfully create standard cell rail pattern std_cell_rail.
+icc2_shell> set_pg_strategy rail_strat -core -pattern {{name: std_cell_rail} {nets: VDD VSS} }
+Successfully set PG strategy rail_strat.
+icc2_shell> compile_pg -strategies rail_strat
+[icc2-lic Thu Jun  5 11:08:54 2025] Command 'compile_pg' requires licenses
+[icc2-lic Thu Jun  5 11:08:54 2025] Attempting to check-out alternate set of keys directly with queueing
+[icc2-lic Thu Jun  5 11:08:54 2025] Sending count request for 'ICCompilerII-8' 
+[icc2-lic Thu Jun  5 11:08:54 2025] Count request for 'ICCompilerII-8' returned 1 
+[icc2-lic Thu Jun  5 11:08:54 2025] Sending check-out request for 'ICCompilerII-8' (1) with wait option
+[icc2-lic Thu Jun  5 11:08:54 2025] Check-out request for 'ICCompilerII-8' with wait option succeeded
+[icc2-lic Thu Jun  5 11:08:54 2025] Sending checkout check request for 'ICCompilerII-8' 
+[icc2-lic Thu Jun  5 11:08:54 2025] Checkout check request for 'ICCompilerII-8' returned 0 
+[icc2-lic Thu Jun  5 11:08:54 2025] Sending count request for 'ICCompilerII-8' 
+[icc2-lic Thu Jun  5 11:08:54 2025] Count request for 'ICCompilerII-8' returned 1 
+[icc2-lic Thu Jun  5 11:08:54 2025] Sending count request for 'ICCompilerII-NX' 
+[icc2-lic Thu Jun  5 11:08:54 2025] Count request for 'ICCompilerII-NX' returned 1 
+[icc2-lic Thu Jun  5 11:08:54 2025] Sending check-out request for 'ICCompilerII-NX' (1) with wait option
+[icc2-lic Thu Jun  5 11:08:54 2025] Check-out request for 'ICCompilerII-NX' with wait option succeeded
+[icc2-lic Thu Jun  5 11:08:54 2025] Sending checkout check request for 'ICCompilerII-NX' 
+[icc2-lic Thu Jun  5 11:08:54 2025] Checkout check request for 'ICCompilerII-NX' returned 0 
+[icc2-lic Thu Jun  5 11:08:54 2025] Sending count request for 'ICCompilerII-NX' 
+[icc2-lic Thu Jun  5 11:08:54 2025] Count request for 'ICCompilerII-NX' returned 1 
+[icc2-lic Thu Jun  5 11:08:54 2025] Check-out of alternate set of keys directly with queueing was successful
+Sanity check for inputs.
+No strategy-level via rule is specified, the default rule will be applied.
+Automatic PG net connection through connect_pg_net is disabled.
+Updating PG strategies.
+Updating strategy rail_strat.
+Loading library and design information.
+Number of Standard Cells: 103
+Number of Hard Macros: 0
+Number of Pads: 0
+Creating standard cell rails.
+Creating standard cell rails for strategy rail_strat.
+DRC checking and fixing for standard cell rail strategy rail_strat.
+Number of threads: 1
+Number of partitions: 2
+Direction of partitions: horizontal
+Number of wires: 12
+Checking DRC for 12 wires: 0% 100%
+Creating 12 wires after DRC fixing.
+Wire DRC checking runtime 0.00 seconds.
+Creating via connection between strategies and existing shapes.
+Check and fix DRCs for 96 stacked vias.
+Number of threads: 1
+Number of partitions: 2
+Direction of partitions: horizontal
+Number of vias: 96
+Checking DRC for 96 stacked vias:: 0% 100%
+48 regular vias are not fixed
+Via DRC checking runtime 1.00 seconds.
+via connection runtime: 1 seconds.
+Removing dangling/floating wire/vias after DRC check.
+Start iteration 1:
+Checking potential dangling/floating power plan wires.
+Checking dangling/floating vias between strategies and existing shapes.
+Checking 48 stacked vias: 0% 100%
+Start iteration 2:
+Checking potential dangling/floating power plan wires.
+Checking dangling/floating vias between strategies and existing shapes.
+Checking 48 stacked vias: 0% 100%
+Finish removing all dangling or floating wires and vias.
+Commiting wires and vias.
+Committing wires takes 0.00 seconds.
+Committing vias takes 0.00 seconds.
+Committed 12 wires.
+Committed 240 vias.
+Committed 0 wires for via creation.
+Overall PG creation runtime: 1 seconds.
+Successfully compiled PG.
+Overall runtime: 1 seconds.
+1
+icc2_shell> #connect_pg_net -all_blocks -automatic
+icc2_shell> #compile_pg
+icc2_shell> ##########################################################
+icc2_shell> ### step 5 : To save block and Save lib
+icc2_shell> #############################################################
+icc2_shell> ## "save_block"  will save block as the deign name (full_adder.design) by default
+icc2_shell> #
+icc2_shell> save_block
+Warning: No valid clocks available in mode 'default'. Setting clock frequency to 1 GHz. (POW-034)
+Information: Saving block 'FULL_ADDER_8BIT_LIB:full_adder_8bit_v.design'
+1
+icc2_shell> save_lib
+Saving library 'FULL_ADDER_8BIT_LIB'
+Warning: No valid clocks available in mode 'default'. Setting clock frequency to 1 GHz. (POW-034)
+1
+icc2_shell> save_block -as FULL_ADD_8BIT_PowerPlan
+Information: Saving 'FULL_ADDER_8BIT_LIB:full_adder_8bit_v.design' to 'FULL_ADDER_8BIT_LIB:FULL_ADD_8BIT_PowerPlan.design'. (DES-028)
+Warning: No valid clocks available in mode 'default'. Setting clock frequency to 1 GHz. (POW-034)
+1
+icc2_shell> save_lib
+Saving library 'FULL_ADDER_8BIT_LIB'
+Warning: No valid clocks available in mode 'default'. Setting clock frequency to 1 GHz. (POW-034)
+1
+icc2_shell> start_gui
+icc2_shell> report_qor
+[icc2-lic Thu Jun  5 11:09:48 2025] Command 'report_qor' requires licenses
+[icc2-lic Thu Jun  5 11:09:48 2025] Attempting to check-out alternate set of keys directly with queueing
+[icc2-lic Thu Jun  5 11:09:48 2025] Sending count request for 'ICCompilerII-8' 
+[icc2-lic Thu Jun  5 11:09:48 2025] Count request for 'ICCompilerII-8' returned 1 
+[icc2-lic Thu Jun  5 11:09:48 2025] Sending check-out request for 'ICCompilerII-8' (1) with wait option
+[icc2-lic Thu Jun  5 11:09:48 2025] Check-out request for 'ICCompilerII-8' with wait option succeeded
+[icc2-lic Thu Jun  5 11:09:48 2025] Sending checkout check request for 'ICCompilerII-8' 
+[icc2-lic Thu Jun  5 11:09:48 2025] Checkout check request for 'ICCompilerII-8' returned 0 
+[icc2-lic Thu Jun  5 11:09:48 2025] Sending count request for 'ICCompilerII-8' 
+[icc2-lic Thu Jun  5 11:09:48 2025] Count request for 'ICCompilerII-8' returned 1 
+[icc2-lic Thu Jun  5 11:09:48 2025] Sending count request for 'ICCompilerII-NX' 
+[icc2-lic Thu Jun  5 11:09:48 2025] Count request for 'ICCompilerII-NX' returned 1 
+[icc2-lic Thu Jun  5 11:09:48 2025] Sending check-out request for 'ICCompilerII-NX' (1) with wait option
+[icc2-lic Thu Jun  5 11:09:48 2025] Check-out request for 'ICCompilerII-NX' with wait option succeeded
+[icc2-lic Thu Jun  5 11:09:48 2025] Sending checkout check request for 'ICCompilerII-NX' 
+[icc2-lic Thu Jun  5 11:09:48 2025] Checkout check request for 'ICCompilerII-NX' returned 0 
+[icc2-lic Thu Jun  5 11:09:48 2025] Sending count request for 'ICCompilerII-NX' 
+[icc2-lic Thu Jun  5 11:09:48 2025] Count request for 'ICCompilerII-NX' returned 1 
+[icc2-lic Thu Jun  5 11:09:48 2025] Check-out of alternate set of keys directly with queueing was successful
+****************************************
+Report : qor
+Design : full_adder_8bit
+Version: W-2024.09
+Date   : Thu Jun  5 11:09:48 2025
+****************************************
+
+
+
+Cell Count
+----------------------------------------
+Hierarchical Cell Count:              0
+Hierarchical Port Count:              0
+Leaf Cell Count:                    103
+Buf/Inv Cell Count:                   0
+Buf Cell Count:                       0
+Inv Cell Count:                       0
+Combinational Cell Count:            77
+   Single-bit Isolation Cell Count:                        0
+   Multi-bit Isolation Cell Count:                         0
+   Isolation Cell Banking Ratio:                           0.00%
+   Single-bit Level Shifter Cell Count:                    0
+   Multi-bit Level Shifter Cell Count:                     0
+   Level Shifter Cell Banking Ratio:                       0.00%
+   Single-bit ELS Cell Count:                              0
+   Multi-bit ELS Cell Count:                               0
+   ELS Cell Banking Ratio:                                 0.00%
+Sequential Cell Count:               26
+   Integrated Clock-Gating Cell Count:                     0
+   Sequential Macro Cell Count:                            0
+   Single-bit Sequential Cell Count:                       26
+   Multi-bit Sequential Cell Count:                        0
+   Sequential Cell Banking Ratio:                          0.00%
+   BitsPerflop:                                            1.00
+Macro Count:                          0
+----------------------------------------
+
+
+Area
+----------------------------------------
+Combinational Area:              129.36
+Noncombinational Area:           179.43
+Buf/Inv Area:                      0.00
+Total Buffer Area:                 0.00
+Total Inverter Area:               0.00
+Macro/Black Box Area:              0.00
+Net Area:                             0
+Net XLength:                     455.42
+Net YLength:                     366.89
+----------------------------------------
+Cell Area (netlist):                            308.78
+Cell Area (netlist and physical only):          308.79
+Net Length:                      822.31
+
+
+Design Rules
+----------------------------------------
+Total Number of Nets:               138
+Nets with Violations:                 0
+Max Trans Violations:                 0
+Max Cap Violations:                   0
+----------------------------------------
+
+1
+icc2_shell> report_timing
+[icc2-lic Thu Jun  5 11:10:39 2025] Command 'report_timing' requires licenses
+[icc2-lic Thu Jun  5 11:10:39 2025] Attempting to check-out alternate set of keys directly with queueing
+[icc2-lic Thu Jun  5 11:10:39 2025] Sending count request for 'ICCompilerII-8' 
+[icc2-lic Thu Jun  5 11:10:39 2025] Count request for 'ICCompilerII-8' returned 1 
+[icc2-lic Thu Jun  5 11:10:39 2025] Sending check-out request for 'ICCompilerII-8' (1) with wait option
+[icc2-lic Thu Jun  5 11:10:39 2025] Check-out request for 'ICCompilerII-8' with wait option succeeded
+[icc2-lic Thu Jun  5 11:10:39 2025] Sending checkout check request for 'ICCompilerII-8' 
+[icc2-lic Thu Jun  5 11:10:39 2025] Checkout check request for 'ICCompilerII-8' returned 0 
+[icc2-lic Thu Jun  5 11:10:39 2025] Sending count request for 'ICCompilerII-8' 
+[icc2-lic Thu Jun  5 11:10:39 2025] Count request for 'ICCompilerII-8' returned 1 
+[icc2-lic Thu Jun  5 11:10:39 2025] Sending count request for 'ICCompilerII-NX' 
+[icc2-lic Thu Jun  5 11:10:39 2025] Count request for 'ICCompilerII-NX' returned 1 
+[icc2-lic Thu Jun  5 11:10:39 2025] Sending check-out request for 'ICCompilerII-NX' (1) with wait option
+[icc2-lic Thu Jun  5 11:10:39 2025] Check-out request for 'ICCompilerII-NX' with wait option succeeded
+[icc2-lic Thu Jun  5 11:10:39 2025] Sending checkout check request for 'ICCompilerII-NX' 
+[icc2-lic Thu Jun  5 11:10:39 2025] Checkout check request for 'ICCompilerII-NX' returned 0 
+[icc2-lic Thu Jun  5 11:10:39 2025] Sending count request for 'ICCompilerII-NX' 
+[icc2-lic Thu Jun  5 11:10:39 2025] Count request for 'ICCompilerII-NX' returned 1 
+[icc2-lic Thu Jun  5 11:10:39 2025] Check-out of alternate set of keys directly with queueing was successful
+****************************************
+Report : timing
+        -path_type full
+        -delay_type max
+        -max_paths 1
+        -report_by design
+Design : full_adder_8bit
+Version: W-2024.09
+Date   : Thu Jun  5 11:10:39 2025
+****************************************
+No paths.
+1
 icc2_shell> 
