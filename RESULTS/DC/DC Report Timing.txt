@@ -1,0 +1,59 @@
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : full_adder_8bit
+Version: W-2024.09
+Date   : Thu Jun  5 10:26:31 2025
+****************************************
+
+Operating Conditions: ff1p16v125c   Library: saed32rvt_ff1p16v125c
+Wire Load Model Mode: enclosed
+
+  Startpoint: regCin_reg (rising edge-triggered flip-flop clocked by Clock)
+  Endpoint: SUM_reg[7] (rising edge-triggered flip-flop clocked by Clock)
+  Path Group: Clock
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  full_adder_8bit    8000                  saed32rvt_ff1p16v125c
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  clock Clock (rise edge)                  0.00       0.00
+  clock network delay (ideal)              0.00       0.00
+  regCin_reg/CLK (DFFSSRX1_RVT)            0.00       0.00 r
+  regCin_reg/QN (DFFSSRX1_RVT)             0.04       0.04 r
+  U85/Y (NAND2X0_RVT)                      0.13       0.18 f
+  U86/Y (NAND2X0_RVT)                      0.07       0.25 r
+  U87/Y (NAND3X0_RVT)                      0.04       0.29 f
+  U94/Y (NAND2X0_RVT)                      0.15       0.43 r
+  U96/Y (AND2X1_RVT)                       0.03       0.46 r
+  U97/Y (NAND2X0_RVT)                      0.07       0.53 f
+  U98/Y (NAND2X0_RVT)                      0.15       0.67 r
+  U103/Y (NAND3X0_RVT)                     0.04       0.71 f
+  U110/Y (NAND2X0_RVT)                     0.14       0.86 r
+  U112/Y (AND2X1_RVT)                      0.04       0.90 r
+  U113/Y (NAND2X0_RVT)                     0.40       1.29 f
+  U118/Y (NAND2X0_RVT)                     0.07       1.36 r
+  U119/Y (NAND3X0_RVT)                     0.03       1.39 f
+  U120/Y (NAND2X0_RVT)                     0.07       1.46 r
+  U67/Y (OR2X1_RVT)                        0.08       1.54 r
+  SUM_reg[7]/D (DFFSSRX1_RVT)              0.01       1.55 r
+  data arrival time                                   1.55
+
+  clock Clock (rise edge)                  2.00       2.00
+  clock network delay (ideal)              0.00       2.00
+  clock uncertainty                       -0.30       1.70
+  SUM_reg[7]/CLK (DFFSSRX1_RVT)            0.00       1.70 r
+  library setup time                      -0.05       1.65
+  data required time                                  1.65
+  -----------------------------------------------------------
+  data required time                                  1.65
+  data arrival time                                  -1.55
+  -----------------------------------------------------------
+  slack (MET)                                         0.10
+
+
