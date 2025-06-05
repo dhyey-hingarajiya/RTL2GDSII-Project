@@ -158,3 +158,4 @@ win_set_select_class -visible {cell pin port routing_guide routing_blockage shap
 win_set_select_class {cell pin port routing_guide routing_blockage shaping_blockage bump_region pseudo_bump pseudo_tsv pin_blockage topology_node topology_edge topology_repeater annotation_shape edit_group shape via via_region metal_area metal_area_hole placement_blockage }
 report_timing
 report_qor
+exit

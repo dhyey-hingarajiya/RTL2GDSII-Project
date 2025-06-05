@@ -15287,4 +15287,10 @@ Max Cap Violations:                   0
 ----------------------------------------
 
 1
-icc2_shell> 
+icc2_shell> exit
+Maximum memory usage for this session: 1627.15 MB
+Maximum memory usage for this session including child processes: 1627.15 MB
+CPU usage for this session:     73 seconds (  0.02 hours)
+Elapsed time for this session:   1032 seconds (  0.29 hours)
+Thank you for using IC Compiler II.
+
