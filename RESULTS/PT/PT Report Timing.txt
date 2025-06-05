@@ -1,0 +1,57 @@
+****************************************
+Report : timing
+	-path_type full
+	-delay_type max
+	-max_paths 1
+	-sort_by slack
+Design : full_adder_8bit
+Version: W-2024.09
+Date   : Thu Jun  5 11:29:44 2025
+****************************************
+
+
+  Startpoint: regCin_reg (rising edge-triggered flip-flop clocked by Clock)
+  Endpoint: SUM_reg[7] (rising edge-triggered flip-flop clocked by Clock)
+  Path Group: Clock
+  Path Type: max
+
+  Point                                                   Incr       Path
+  ------------------------------------------------------------------------------
+  clock Clock (rise edge)                             0.000000   0.000000
+  clock network delay (ideal)                         0.000000   0.000000
+  regCin_reg/CLK (DFFSSRX1_RVT)                       0.000000   0.000000 r
+  regCin_reg/QN (DFFSSRX1_RVT)                        0.044293   0.044293 r
+  U85/Y (NAND2X0_RVT)                                 0.134848   0.179141 f
+  U86/Y (NAND2X0_RVT)                                 0.069157   0.248298 r
+  U87/Y (NAND3X0_RVT)                                 0.037456   0.285754 f
+  ctmTdsLR_2_710/Y (AND3X1_RVT)                       0.155896   0.441650 f
+  ctmTdsLR_1_709/Y (INVX0_RVT)                        0.020493   0.462143 r
+  U96/Y (AND2X1_RVT)                                  0.031121   0.493265 r
+  U97/Y (NAND2X0_RVT)                                 0.065170   0.558435 f
+  U98/Y (NAND2X0_RVT)                                 0.145091   0.703525 r
+  U103/Y (NAND3X0_RVT)                                0.039460   0.742985 f
+  ctmTdsLR_2_712/Y (AND3X1_RVT)                       0.155820   0.898805 f
+  ctmTdsLR_1_711/Y (INVX0_RVT)                        0.020487   0.919292 r
+  U112/Y (AND2X1_RVT)                                 0.035711   0.955003 r
+  U113/Y (NAND2X0_RVT)                                0.395495   1.350498 f
+  U118/Y (NAND2X0_RVT)                                0.069272   1.419770 r
+  U119/Y (NAND3X0_RVT)                                0.032035   1.451806 f
+  U120/Y (NAND2X0_RVT)                                0.070932   1.522738 r
+  U67/Y (OR2X1_RVT)                                   0.076558   1.599296 r
+  SUM_reg[7]/D (DFFSSRX1_RVT)                         0.011994   1.611290 r
+  data arrival time                                              1.611290
+
+  clock Clock (rise edge)                             2.000000   2.000000
+  clock network delay (ideal)                         0.000000   2.000000
+  SUM_reg[7]/CLK (DFFSSRX1_RVT)                                  2.000000 r
+  clock reconvergence pessimism                       0.000000   2.000000
+  clock uncertainty                                   -0.300000  1.700000
+  library setup time                                  -0.053678  1.646322
+  data required time                                             1.646322
+  ------------------------------------------------------------------------------
+  data required time                                             1.646322
+  data arrival time                                              -1.611290
+  ------------------------------------------------------------------------------
+  slack (MET)                                                    0.035032
+
+

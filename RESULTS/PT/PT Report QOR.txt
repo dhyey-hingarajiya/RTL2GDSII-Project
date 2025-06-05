@@ -1,0 +1,48 @@
+****************************************
+Report : qor
+Design : full_adder_8bit
+Version: W-2024.09
+Date   : Thu Jun  5 11:30:42 2025
+****************************************
+
+  Timing Path Group 'Clock' (max_delay/setup)
+  ---------------------------------------------
+  Levels of Logic:                           18
+  Critical Path Length:                1.611290
+  Critical Path Slack:                 0.035032
+  Total Negative Slack:                0.000000
+  No. of Violating Paths:                     0
+  ---------------------------------------------
+
+  Timing Path Group 'Clock' (min_delay/hold)
+  ---------------------------------------------
+  Levels of Logic:                            3
+  Critical Path Length:                0.131979
+  Critical Path Slack:                 0.028003
+  Total Negative Slack:                0.000000
+  No. of Violating Paths:                     0
+  ---------------------------------------------
+
+  Area
+  ---------------------------------------------
+  Net Interconnect area:              45.962540
+  Total cell area:                   315.138489
+  Design Area:                       361.101013
+  ---------------------------------------------
+
+
+  Cell & Pin Count
+  ---------------------------------------------
+  Pin Count:                                378
+  Hierarchical Cell Count:                    0
+  Hierarchical Port Count:                    0
+  Leaf Cell Count:                          105
+  ---------------------------------------------
+
+
+  Design Rule Violations
+  ---------------------------------------------
+  Total No. of Pins in Design:              378
+  Total DRC Cost:                      0.000000
+  ---------------------------------------------
+
