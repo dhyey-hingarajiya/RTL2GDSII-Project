@@ -80,3 +80,6 @@ report_timing
 source scripts/placement.tcl
 report_qor
 report_timing
+source scripts/clock.tcl
+report_qor
+report_timing
