@@ -1,0 +1,86 @@
+****************************************
+Report : qor
+Design : full_adder_8bit
+Version: W-2024.09
+Date   : Thu Jun  5 11:05:29 2025
+****************************************
+Warning: no valid parasitic for default corner(LATE) (NEX-018)
+Warning: no valid parasitic for default corner(EARLY) (NEX-018)
+Warning: no valid parasitic for (all corners) corner((both specs)) (NEX-018)
+Information: The stitching and editing of coupling caps is turned OFF for design 'FULL_ADDER_8BIT_LIB:full_adder_8bit_v.design'. (TIM-125)
+Warning: The extractor can not be initialized for block 'full_adder_8bit_v'. (TIM-103)
+Warning: The extractor can not be initialized for design 'full_adder_8bit'. Zero interconnect delay is used in timing analysis. (TIM-102)
+Warning: Batch extraction is skipped for block "full_adder_8bit"
+Information: Update timing completed net estimation for all the timing graph nets (TIM-111)
+Information: Net estimation statistics: timing graph nets = 134, routed nets = 0, across physical hierarchy nets = 0, parasitics cached nets = 0, delay annotated nets = 0, parasitics annotated nets = 0, multi-voltage nets = 0. (TIM-112)
+************************************************************
+Timer Settings:
+Delay Calculation Style:                   auto
+Signal Integrity Analysis:                 disabled
+Timing Window Analysis:                    disabled
+Advanced Waveform Propagation:             disabled
+Variation Type:                            fixed_derate
+Clock Reconvergence Pessimism Removal:     disabled
+Advanced Receiver Model:                   disabled
+LLE:                                       disabled
+ML Acceleration:                           off
+Smart Arc Optimization:                    disabled
+************************************************************
+
+
+
+Cell Count
+----------------------------------------
+Hierarchical Cell Count:              0
+Hierarchical Port Count:              0
+Leaf Cell Count:                    103
+Buf/Inv Cell Count:                   0
+Buf Cell Count:                       0
+Inv Cell Count:                       0
+Combinational Cell Count:            77
+   Single-bit Isolation Cell Count:                        0
+   Multi-bit Isolation Cell Count:                         0
+   Isolation Cell Banking Ratio:                           0.00%
+   Single-bit Level Shifter Cell Count:                    0
+   Multi-bit Level Shifter Cell Count:                     0
+   Level Shifter Cell Banking Ratio:                       0.00%
+   Single-bit ELS Cell Count:                              0
+   Multi-bit ELS Cell Count:                               0
+   ELS Cell Banking Ratio:                                 0.00%
+Sequential Cell Count:               26
+   Integrated Clock-Gating Cell Count:                     0
+   Sequential Macro Cell Count:                            0
+   Single-bit Sequential Cell Count:                       26
+   Multi-bit Sequential Cell Count:                        0
+   Sequential Cell Banking Ratio:                          0.00%
+   BitsPerflop:                                            1.00
+Macro Count:                          0
+----------------------------------------
+
+
+Area
+----------------------------------------
+Combinational Area:              129.36
+Noncombinational Area:           179.43
+Buf/Inv Area:                      0.00
+Total Buffer Area:                 0.00
+Total Inverter Area:               0.00
+Macro/Black Box Area:              0.00
+Net Area:                             0
+Net XLength:                     486.05
+Net YLength:                     407.51
+----------------------------------------
+Cell Area (netlist):                            308.78
+Cell Area (netlist and physical only):          308.79
+Net Length:                      893.55
+
+
+Design Rules
+----------------------------------------
+Total Number of Nets:               138
+Nets with Violations:                 0
+Max Trans Violations:                 0
+Max Cap Violations:                   0
+----------------------------------------
+
+

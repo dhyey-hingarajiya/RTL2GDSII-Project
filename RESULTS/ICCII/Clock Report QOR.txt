@@ -1,0 +1,100 @@
+****************************************
+Report : qor
+Design : full_adder_8bit
+Version: W-2024.09
+Date   : Thu Jun  5 11:15:26 2025
+****************************************
+
+
+Scenario           'func::nom'
+Timing Path Group  '**in2reg_default**'
+----------------------------------------
+Levels of Logic:                      0
+Critical Path Length:              0.50
+Critical Path Slack:               1.04
+Critical Path Clk Period:          2.00
+Total Negative Slack:              0.00
+No. of Violating Paths:               0
+----------------------------------------
+
+Scenario           'func::nom'
+Timing Path Group  '**reg2out_default**'
+----------------------------------------
+Levels of Logic:                      0
+Critical Path Length:              0.09
+Critical Path Slack:               1.08
+Critical Path Clk Period:          2.00
+Total Negative Slack:              0.00
+No. of Violating Paths:               0
+----------------------------------------
+
+Scenario           'func::nom'
+Timing Path Group  'Clock'
+----------------------------------------
+Levels of Logic:                     17
+Critical Path Length:              0.69
+Critical Path Slack:               0.92
+Critical Path Clk Period:          2.00
+Total Negative Slack:              0.00
+No. of Violating Paths:               0
+Worst Hold Violation:              0.00
+Total Hold Violation:              0.00
+No. of Hold Violations:               0
+----------------------------------------
+
+
+Cell Count
+----------------------------------------
+Hierarchical Cell Count:              0
+Hierarchical Port Count:              0
+Leaf Cell Count:                    106
+Buf/Inv Cell Count:                   6
+Buf Cell Count:                       3
+Inv Cell Count:                       3
+Combinational Cell Count:            80
+   Single-bit Isolation Cell Count:                        0
+   Multi-bit Isolation Cell Count:                         0
+   Isolation Cell Banking Ratio:                           0.00%
+   Single-bit Level Shifter Cell Count:                    0
+   Multi-bit Level Shifter Cell Count:                     0
+   Level Shifter Cell Banking Ratio:                       0.00%
+   Single-bit ELS Cell Count:                              0
+   Multi-bit ELS Cell Count:                               0
+   ELS Cell Banking Ratio:                                 0.00%
+Sequential Cell Count:               26
+   Integrated Clock-Gating Cell Count:                     0
+   Sequential Macro Cell Count:                            0
+   Single-bit Sequential Cell Count:                       26
+   Multi-bit Sequential Cell Count:                        0
+   Sequential Cell Banking Ratio:                          0.00%
+   BitsPerflop:                                            1.00
+Macro Count:                          0
+----------------------------------------
+
+
+Area
+----------------------------------------
+Combinational Area:              137.75
+Noncombinational Area:           179.43
+Buf/Inv Area:                     12.20
+Total Buffer Area:                 8.39
+Total Inverter Area:               3.81
+Macro/Black Box Area:              0.00
+Net Area:                             0
+Net XLength:                     442.33
+Net YLength:                     372.90
+----------------------------------------
+Cell Area (netlist):                            317.17
+Cell Area (netlist and physical only):          317.17
+Net Length:                      815.22
+
+
+Design Rules
+----------------------------------------
+Total Number of Nets:               139
+Nets with Violations:                 1
+Max Trans Violations:                 1
+Max Cap Violations:                   0
+----------------------------------------
+
+
